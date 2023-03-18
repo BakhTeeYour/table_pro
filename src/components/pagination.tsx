@@ -41,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({handlePage, postLength}) => {
     const updatePerPage = (evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, num: number): void => {
         evt.preventDefault();
         // setTitlesPerPage(num);
-        if (num < 10 && num > 0) {
+        if (num < 11 && num > 0) {
             updateParams('_page', num.toString());
             setTitlesPerPage(num);
         }
