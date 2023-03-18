@@ -35,13 +35,13 @@ input::placeholder {
 
 .search {
   background-color: #5A5C66;
-  padding: 15px 150px;
-  /*display: flex;*/
+  padding: 15px 26px;
+  display: flex;
   margin-bottom: 15px;
 }
 
 .search input {
-
+flex: 1;
 }
 
 .table-default {

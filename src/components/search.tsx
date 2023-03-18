@@ -33,7 +33,7 @@ const Search: React.FC<SearchProps> = ({handleSearch}) => {
                     autoComplete='off'
                     placeholder='Поиск'
                 />
-                <img src={SearchIcon} alt="icon" />
+                <img className="search_img" src={SearchIcon} alt="icon" />
             </label>
         );
     }

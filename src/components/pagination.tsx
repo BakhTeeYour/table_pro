@@ -1,10 +1,11 @@
 import React, {useState, useEffect, MouseEvent} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
-import { Title } from "../App";
+import {Title} from "../App";
 
 interface PaginationProps {
     handlePage(data: Title[], titlePerPage: number): void,
+
     postLength: number,
 }
 
@@ -39,8 +40,12 @@ const Pagination: React.FC<PaginationProps> = ({handlePage, postLength}) => {
 
     const updatePerPage = (evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, num: number): void => {
         evt.preventDefault();
-        setTitlesPerPage(num);
-        updateParams('_page', num.toString());
+        // setTitlesPerPage(num);
+        if (num < 10 && num > 0) {
+            updateParams('_page', num.toString());
+            setTitlesPerPage(num);
+        }
+
     }
 
 
@@ -56,13 +61,14 @@ const Pagination: React.FC<PaginationProps> = ({handlePage, postLength}) => {
                             <li key={numbers}>
                                 {
                                     numbers === page ?
-                                    <span className="page-active">
+                                        <span className="page-active">
                                         {numbers}
                                     </span>
-                                    :
-                                    <button onClick={evt => updatePerPage(evt, numbers)} className="pagination-link">
-                                        {numbers}
-                                    </button>
+                                        :
+                                        <button onClick={evt => updatePerPage(evt, numbers)}
+                                                className="pagination-link">
+                                            {numbers}
+                                        </button>
                                 }
                             </li>
                         ))
